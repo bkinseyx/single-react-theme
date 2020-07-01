@@ -1,34 +1,46 @@
 {
-	"name": "single-react-theme",
-	"version": "1.0.0",
-	"main": "package.json",
-	"keywords": [
-		"liferay-theme"
-	],
-	"liferayTheme": {
-		"baseTheme": "styled",
-		"fontAwesome": true,
-		"screenshot": "",
-		"templateLanguage": "ftl",
-		"version": "7.2"
-	},
-	"devDependencies": {
-		"compass-mixins": "0.12.10",
-		"gulp": "4.0.2",
-		"liferay-frontend-common-css": "1.0.4",
-		"liferay-frontend-theme-styled": "4.0.21",
-		"liferay-frontend-theme-unstyled": "4.0.17",
-		"liferay-theme-tasks": "^10.0.2",
-		"liferay-font-awesome": "3.4.0"
-	},
-	"scripts": {
-		"init": "gulp init",
-		"build": "gulp build",
-		"deploy": "gulp deploy",
-		"extend": "gulp extend",
-		"kickstart": "gulp kickstart",
-		"status": "gulp status",
-		"upgrade": "gulp upgrade",
-		"watch": "gulp watch"
-	}
+  "name": "single-react-theme",
+  "version": "1.0.0",
+  "main": "package.json",
+  "keywords": [
+    "liferay-theme"
+  ],
+  "liferayTheme": {
+    "baseTheme": "styled",
+    "fontAwesome": true,
+    "screenshot": "",
+    "templateLanguage": "ftl",
+    "version": "7.2"
+  },
+  "scripts": {
+    "init": "gulp init",
+    "build": "npm run react-build && npm run extract-react && gulp build",
+    "react-build": "cd react-app && npm run build && cd ..",
+    "extract-react": "npm run copy-react-files && npm run extract-react-tags",
+    "extract-react-tags": "ts-node scripts/extract-react-tags.ts",
+    "copy-react-files": "npm run copy-react-css-files && npm run copy-react-js-files && npm run copy-react-media-files",
+    "copy-react-css-files": "shx rm src/css/react/* && shx cp react-app/build/static/css/* src/css/react/",
+    "copy-react-js-files": "shx rm src/js/react/* && shx cp react-app/build/static/js/* src/js/react/",
+    "copy-react-media-files": "shx rm src/images/react/static/media/* && shx cp react-app/build/static/media/* src/images/react/static/media",
+    "deploy": "npm run build && gulp deploy:war",
+    "extend": "gulp extend",
+    "kickstart": "gulp kickstart",
+    "status": "gulp status",
+    "upgrade": "gulp upgrade",
+    "watch": "gulp watch"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.14",
+    "compass-mixins": "0.12.10",
+    "gulp": "4.0.2",
+    "liferay-font-awesome": "3.4.0",
+    "liferay-frontend-common-css": "1.0.4",
+    "liferay-frontend-theme-styled": "4.0.21",
+    "liferay-frontend-theme-unstyled": "4.0.17",
+    "liferay-theme-tasks": "^10.0.2",
+    "node-html-parser": "^1.2.20",
+    "shx": "^0.3.2",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  }
 }

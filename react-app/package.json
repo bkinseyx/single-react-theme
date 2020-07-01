@@ -25,7 +25,8 @@
     "typescript": "~3.8.2"
   },
   "devDependencies": {
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "node-html-parser": "^1.2.20"
   },
   "homepage": "/o/single-react-theme/images/react",
   "eslintConfig": {
