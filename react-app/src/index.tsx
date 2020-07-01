@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+document.querySelectorAll('[data-react-app]').forEach((el) => {
+  const reactApp = el.getAttribute('data-react-app');
+  const reactConfig = JSON.parse(el.getAttribute('data-react-config') ?? '');
+  if (!reactApp) {
+    return;
+  }
+  console.log({ reactApp });
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App reactApp={reactApp} reactConfig={reactConfig} />
+      </Provider>
+    </React.StrictMode>,
+    el
+  );
+});

@@ -27,7 +27,8 @@
     "kickstart": "gulp kickstart",
     "status": "gulp status",
     "upgrade": "gulp upgrade",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "start-react": "cd react-app && npm start"
   },
   "devDependencies": {
     "@types/node": "^14.0.14",

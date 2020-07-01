@@ -11,7 +11,7 @@ writeFileSync(
       scriptTag.setAttribute(
         'href',
         '${css_folder}/react/' +
-          scriptTag.getAttribute('href').split('/').slice(-1)[0]
+          scriptTag.getAttribute('href').split('/').slice(-1)[0] // last element
       );
       return scriptTag.toString();
     })
@@ -25,7 +25,7 @@ writeFileSync(
       scriptTag.setAttribute(
         'src',
         '${javascript_folder}/react/' +
-          scriptTag.getAttribute('src').split('/').slice(-1)[0]
+          scriptTag.getAttribute('src').split('/').slice(-1)[0] // last element
       );
       return scriptTag.toString();
     })
