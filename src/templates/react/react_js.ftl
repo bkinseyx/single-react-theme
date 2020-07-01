@@ -1,3 +1,3 @@
-<script src="${javascript_folder}/react/runtime-main.31aca427.js"></script>
-<script src="${javascript_folder}/react/9.dfc4d801.chunk.js"></script>
-<script src="${javascript_folder}/react/main.30db7f64.chunk.js"></script>
+<script src="/o/single-react-theme/images/react/static/js/runtime-main.ecfefd04.js"></script>
+<script src="/o/single-react-theme/images/react/static/js/6.b7518456.chunk.js"></script>
+<script src="/o/single-react-theme/images/react/static/js/main.166aac0d.chunk.js"></script>

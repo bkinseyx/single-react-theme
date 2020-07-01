@@ -11,7 +11,6 @@ document.querySelectorAll('[data-react-app]').forEach((el) => {
   if (!reactApp) {
     return;
   }
-  console.log({ reactApp });
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>

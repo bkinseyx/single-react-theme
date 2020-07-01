@@ -13,22 +13,19 @@
     "version": "7.2"
   },
   "scripts": {
-    "init": "gulp init",
-    "build": "npm run react-build && npm run extract-react && gulp build",
-    "react-build": "cd react-app && npm run build && cd ..",
-    "extract-react": "npm run copy-react-files && npm run extract-react-tags",
-    "extract-react-tags": "ts-node scripts/extract-react-tags.ts",
-    "copy-react-files": "npm run copy-react-css-files && npm run copy-react-js-files && npm run copy-react-media-files",
-    "copy-react-css-files": "shx rm src/css/react/* && shx cp react-app/build/static/css/* src/css/react/",
-    "copy-react-js-files": "shx rm src/js/react/* && shx cp react-app/build/static/js/* src/js/react/",
-    "copy-react-media-files": "shx rm src/images/react/static/media/* && shx cp react-app/build/static/media/* src/images/react/static/media",
+    "init": "gulp init && shx cd react-app && npm i",
+    "build": "npm run react-build && npm run react-extract && gulp build",
     "deploy": "npm run build && gulp deploy:war",
     "extend": "gulp extend",
     "kickstart": "gulp kickstart",
     "status": "gulp status",
     "upgrade": "gulp upgrade",
     "watch": "gulp watch",
-    "react-start": "cd react-app && npm start"
+    "react-start": "cd react-app && npm start",
+    "react-build": "cd react-app && shx rm -rf build && npm run build && cd ..",
+    "react-extract": "npm run react-copy-files && npm run react-extract-tags",
+    "react-extract-tags": "ts-node scripts/extract-react-tags.ts",
+    "react-copy-files": "shx rm -rf src/images/react/* && shx mkdir -p src/images/react/static && shx cp -r react-app/build/static src/images/react"
   },
   "devDependencies": {
     "@types/node": "^14.0.14",

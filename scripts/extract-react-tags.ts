@@ -8,11 +8,11 @@ writeFileSync(
     .querySelectorAll('link')
     .filter((tag) => tag.getAttribute('rel') === 'stylesheet')
     .map((scriptTag) => {
-      scriptTag.setAttribute(
-        'href',
-        '${css_folder}/react/' +
-          scriptTag.getAttribute('href').split('/').slice(-1)[0] // last element
-      );
+      // scriptTag.setAttribute(
+      //   'href',
+      //   '${css_folder}/react/' +
+      //     scriptTag.getAttribute('href').split('/').slice(-1)[0] // last element
+      // );
       return scriptTag.toString();
     })
     .join('\n')
@@ -22,11 +22,11 @@ writeFileSync(
   indexHtml
     .querySelectorAll('script')
     .map((scriptTag) => {
-      scriptTag.setAttribute(
-        'src',
-        '${javascript_folder}/react/' +
-          scriptTag.getAttribute('src').split('/').slice(-1)[0] // last element
-      );
+      // scriptTag.setAttribute(
+      //   'src',
+      //   '${javascript_folder}/react/' +
+      //     scriptTag.getAttribute('src').split('/').slice(-1)[0] // last element
+      // );
       return scriptTag.toString();
     })
     .join('\n')

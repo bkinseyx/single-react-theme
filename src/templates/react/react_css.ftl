@@ -1,1 +1,1 @@
-<link href="${css_folder}/react/main.69eda509.chunk.css" rel="stylesheet">
+<link href="/o/single-react-theme/images/react/static/css/main.69eda509.chunk.css" rel="stylesheet">
