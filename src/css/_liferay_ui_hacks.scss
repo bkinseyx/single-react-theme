@@ -1,0 +1,4 @@
+// seems to be necessary to view the web content options in content page edit mode
+.portlet-topper {
+  width: calc(100% - 50px) !important;
+}
