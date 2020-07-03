@@ -24,3 +24,5 @@ export const App = ({ reactApp, reactConfig }: AppProps) => (
     </Suspense>
   </div>
 );
+
+export default App;

@@ -4,7 +4,7 @@ import { Counter } from '../Counter/Counter';
 import './ReduxDemo.css';
 
 export const ReduxDemo = ({ reactConfig }: { reactConfig?: {} }) => {
-  console.log({ reactConfig });
+  console.log(reactConfig);
   return (
     <div className="ReduxDemo">
       <header className="ReduxDemo-header">

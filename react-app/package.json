@@ -25,6 +25,7 @@
     "typescript": "~3.8.2"
   },
   "devDependencies": {
+    "@types/webpack-env": "^1.15.2",
     "env-cmd": "^10.1.0",
     "node-html-parser": "^1.2.20"
   },
