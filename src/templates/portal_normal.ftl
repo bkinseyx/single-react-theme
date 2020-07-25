@@ -12,6 +12,12 @@
 	<@liferay_util["include"] page=top_head_include />
 
 	<#include "${full_templates_path}/react/react_css.ftl" />
+
+	<script>
+		// to prevent javascript error until defined
+		window.initThemeReact = function () {};
+	</script>
+
 </head>
 
 <body class="${css_class}">

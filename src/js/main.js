@@ -42,9 +42,6 @@ Liferay.on(
 	*/
 
   function () {
-    window.initThemeReact();
+    window.initThemeReact && window.initThemeReact();
   }
 );
-
-// to prevent javascript error until defined
-window.initThemeReact = function () {};

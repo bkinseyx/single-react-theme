@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[28],{79:function(t,r,e){"use strict";e.r(r),e.d(r,"getErrorCloseOnClick",(function(){return s}));var n=e(12),c=e(5),s=function(){return function(){n.a.dispatch(Object(c.setErrorMessage)())}}}}]);
+//# sourceMappingURL=28.b3e8fcf8.chunk.js.map
