@@ -7,7 +7,14 @@ import { getCreateOnClick } from './getCreateOnClick';
 import { CardFooterWrapper } from 'app/components/CardFooterWrapper/CardFooterWrapper';
 import { TopLevelComponent } from 'app/typeUtils';
 
-export const ProfileCard: TopLevelComponent = ({ reactConfig }) => {
+interface ProfileCardProps {
+  reactConfig?: {
+    title?: string;
+  };
+}
+export const ProfileCard: TopLevelComponent<ProfileCardProps> = ({
+  reactConfig,
+}) => {
   const profileList = useSelector(profileListSelector);
   return (
     <div className="card" role="main" aria-label="Profile Card">

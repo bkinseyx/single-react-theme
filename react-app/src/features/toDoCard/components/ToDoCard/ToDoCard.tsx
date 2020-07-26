@@ -7,7 +7,13 @@ import { activeProfileSelector } from '../../selectors/activeProfileSelector';
 import { ToDoCardFooter } from './ToDoCardFooter';
 import { TopLevelComponent } from 'app/typeUtils';
 
-export const ToDoCard: TopLevelComponent = ({ reactConfig }) => {
+interface ToDoCardProps {
+  reactConfig?: {
+    title?: string;
+  };
+}
+
+export const ToDoCard: TopLevelComponent<ToDoCardProps> = ({ reactConfig }) => {
   const toDoList = useSelector(toDoListSelector);
   const activeProfile = useSelector(activeProfileSelector);
   return (
