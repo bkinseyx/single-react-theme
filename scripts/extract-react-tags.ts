@@ -21,6 +21,7 @@ writeFileSync(
   'src/templates/react/react_js.ftl',
   indexHtml
     .querySelectorAll('script')
+    .filter((tag) => tag.hasAttribute('src'))
     .map((scriptTag) => {
       // scriptTag.setAttribute(
       //   'src',
