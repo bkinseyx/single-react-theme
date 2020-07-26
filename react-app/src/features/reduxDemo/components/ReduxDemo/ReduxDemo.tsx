@@ -5,7 +5,7 @@ import { Counter } from '../Counter/Counter';
 import { TopLevelComponent } from 'app/typeUtils';
 import './ReduxDemo.css';
 
-export const ReduxDemo: TopLevelComponent = () => {
+export const ReduxDemo: TopLevelComponent<{}> = () => {
   return (
     <div className="ReduxDemo">
       <header className="ReduxDemo-header">
