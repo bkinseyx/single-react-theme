@@ -16,9 +16,10 @@ const dummyUserData: User[] = [
   },
 ];
 
-export const getUsers = () => async () => {
+export const getUsers = async () => {
   if (process.env.NODE_ENV === 'development') {
-    return dummyUserData;
+    store.dispatch(getUsersSuccess(dummyUserData));
+    return;
   }
   try {
     store.dispatch(getUsersBegin());

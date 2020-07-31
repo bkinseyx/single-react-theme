@@ -8,9 +8,11 @@ import { getUsersBeginReducer } from './reducers/getUsersBeginReducer';
 import { getUsersSuccessReducer } from './reducers/getUsersSuccessReducer';
 import { getUsersFailureReducer } from './reducers/getUsersFailureReducer';
 import { submitEditFormReducer } from './reducers/submitEditFormReducer';
+import { resetEditFormReducer } from './reducers/resetEditFormReducer';
 
 import { resetReducer } from './reducers/resetReducer';
 import { setFormDataReducer } from './reducers/setFormData';
+import { cancelEditFormReducer } from './reducers/cancelEditFormReducer';
 
 export interface User {
   userId: string;
@@ -63,8 +65,8 @@ const uiSchema = {
 };
 
 export interface UserEditForm {
-  key: number;
-  data: {};
+  formKey: number;
+  data?: User;
   serverError: null;
   serverSuccessMessage: null;
   submitting: false;
@@ -85,8 +87,7 @@ export const initialState: UserState = {
   loading: false,
   error: '',
   editForm: {
-    key: Date.now(),
-    data: {},
+    formKey: Date.now(),
     serverError: null,
     serverSuccessMessage: null,
     submitting: false,
@@ -107,6 +108,8 @@ export const userSlice = createSlice({
     getUsersSuccess: getUsersSuccessReducer,
     getUsersFailure: getUsersFailureReducer,
     submitEditForm: submitEditFormReducer,
+    resetEditForm: resetEditFormReducer,
+    cancelEditForm: cancelEditFormReducer,
     setFormData: setFormDataReducer,
     reset: resetReducer,
   },
@@ -121,6 +124,8 @@ export const {
   getUsersSuccess,
   getUsersFailure,
   submitEditForm,
+  resetEditForm,
+  cancelEditForm,
   setFormData,
   reset,
 } = userSlice.actions;

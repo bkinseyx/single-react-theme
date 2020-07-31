@@ -6,6 +6,7 @@ export const getUsersSuccessReducer = (
   state: UserState,
   action: PayloadAction<User[]>
 ): void => {
+  console.log('here!!');
   state.users = action.payload;
   state.loading = false;
 };

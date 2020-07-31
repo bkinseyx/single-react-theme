@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { UserItem } from '../UserItem/UserItem';
 import { usersSelector } from '../../selectors/usersSelector';
 import { CardFooterWrapper } from 'app/components/CardFooterWrapper/CardFooterWrapper';
 import { getCreateOnClick } from './getCreateOnClick';
+import { getUsers } from 'features/userCard/api/getUsers';
 
 export const UserListCard: React.FC = () => {
+  useEffect(() => {
+    console.log('what');
+    getUsers();
+  }, []);
+
   const userList = useSelector(usersSelector);
 
   return (
