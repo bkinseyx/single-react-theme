@@ -1,5 +1,5 @@
 import { Profile } from '../profileSlice';
-import { WithRequired, WithOptional } from 'app/typeUtils';
+import { WithRequired, WithOptional } from 'app/utils/typeUtils';
 
 export type ProfileTemplateFields = 'showToDoList' | 'profileType';
 

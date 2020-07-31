@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { ProfileState, Profile } from '../profileSlice';
-import { WithRequired } from 'app/typeUtils';
+import { WithRequired } from 'app/utils/typeUtils';
 
 export const updateProfileReducer = (
   state: ProfileState,

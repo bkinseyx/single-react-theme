@@ -66,3 +66,5 @@ export const updateUserDummyData = {
   userGroupRoles: [],
   userGroupIds: [],
 };
+
+export const getGroupId = () => window.Liferay.ThemeDisplay.getScopeGroupId();

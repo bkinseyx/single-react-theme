@@ -5,7 +5,7 @@ import { ProfileItem } from '../ProfileItem/ProfileItem';
 import { profileListSelector } from '../../selectors/profileListSelector';
 import { getCreateOnClick } from './getCreateOnClick';
 import { CardFooterWrapper } from 'app/components/CardFooterWrapper/CardFooterWrapper';
-import { TopLevelComponent } from 'app/typeUtils';
+import { TopLevelComponent } from 'app/utils/typeUtils';
 
 interface ProfileCardProps {
   reactConfig?: {

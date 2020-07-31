@@ -1,5 +1,5 @@
 import { ToDo } from '../toDoSlice';
-import { WithRequired, WithOptional } from 'app/typeUtils';
+import { WithRequired, WithOptional } from 'app/utils/typeUtils';
 
 type ToDoTemplateFields = 'isComplete';
 

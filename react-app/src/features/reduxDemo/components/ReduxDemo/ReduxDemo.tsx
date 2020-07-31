@@ -2,8 +2,8 @@ import React from 'react';
 
 import logo from './logo.svg';
 import { Counter } from '../Counter/Counter';
-import { TopLevelComponent } from 'app/typeUtils';
 import './ReduxDemo.css';
+import { TopLevelComponent } from 'app/utils/typeUtils';
 
 export const ReduxDemo: TopLevelComponent<{}> = () => {
   return (

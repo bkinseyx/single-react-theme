@@ -1,7 +1,7 @@
 import { RootState } from 'app/rootReducer';
 import { Profile } from '../profileSlice';
-import { WithRequired } from 'app/typeUtils';
 import { ProfileTemplateFields } from '../helpers/profileTemplate';
+import { WithRequired } from 'app/utils/typeUtils';
 
 export const getIsActiveSelector = (
   profile: WithRequired<Profile, ProfileTemplateFields>

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { lowerCaseFirstLetter } from './app/utils';
+import { lowerCaseFirstLetter } from 'app/utils/stringUtils';
 
 interface AppProps {
   reactApp: string;

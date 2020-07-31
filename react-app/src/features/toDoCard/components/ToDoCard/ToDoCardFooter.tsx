@@ -24,7 +24,12 @@ export const ToDoCardFooter: React.FC = () => {
           Create New ToDo
         </button>
         {errorMessage && (
-          <Alert variant="warning" dismissible onClose={getErrorCloseOnClick()}>
+          <Alert
+            style={{ flexGrow: 1 }}
+            variant="warning"
+            dismissible
+            onClose={getErrorCloseOnClick()}
+          >
             {errorMessage}
           </Alert>
         )}

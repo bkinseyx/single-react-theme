@@ -5,7 +5,7 @@ import { ToDoItem } from '../ToDoItem/ToDoItem';
 import { toDoListSelector } from '../../selectors/toDoListSelector';
 import { activeProfileSelector } from '../../selectors/activeProfileSelector';
 import { ToDoCardFooter } from './ToDoCardFooter';
-import { TopLevelComponent } from 'app/typeUtils';
+import { TopLevelComponent } from 'app/utils/typeUtils';
 
 interface ToDoCardProps {
   reactConfig?: {

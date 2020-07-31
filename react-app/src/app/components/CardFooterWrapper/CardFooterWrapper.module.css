@@ -9,11 +9,7 @@
   padding: 0.5rem 1rem;
 }
 
-.wrapper > *:nth-child(2) {
-  flex-grow: 1;
-}
-
-.wrapper > *:nth-child(2) button {
+.wrapper > *:last-child button {
   padding: 0;
   height: 100%;
   display: flex;

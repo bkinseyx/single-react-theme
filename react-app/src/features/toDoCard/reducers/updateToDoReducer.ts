@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 
 import { ToDoState, ToDo } from '../toDoSlice';
-import { WithRequired } from 'app/typeUtils';
+import { WithRequired } from 'app/utils/typeUtils';
 
 export const updateToDoReducer = (
   state: ToDoState,
