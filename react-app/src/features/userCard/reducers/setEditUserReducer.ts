@@ -6,5 +6,5 @@ export const editUserReducer = (
   state: UserState,
   action: PayloadAction<User>
 ): void => {
-  state.editUser = action.payload;
+  state.editForm.data = action.payload;
 };

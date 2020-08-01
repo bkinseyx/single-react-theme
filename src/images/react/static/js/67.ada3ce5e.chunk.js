@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[67],{682:function(p,t,a){p.exports=a.p+"static/media/ProfileCard.test.tsx.80b6d95c.snap"}}]);
+//# sourceMappingURL=67.ada3ce5e.chunk.js.map

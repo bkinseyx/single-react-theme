@@ -1,14 +1,14 @@
 import React from 'react';
-import { store } from 'app/store';
-import { deleteUser } from '../../userSlice';
+import { User } from '../../userSlice';
+import { getUser } from 'features/userCard/api/getUser';
 
-export const getEditOnClick = (userId?: string) => (
+export const getEditOnClick = (user?: User) => (
   event: React.MouseEvent
 ): void => {
   /* istanbul ignore next */
-  if (!userId) {
+  if (!user) {
     return;
   }
-  store.dispatch(deleteUser(userId));
+  getUser(user);
   event.stopPropagation();
 };

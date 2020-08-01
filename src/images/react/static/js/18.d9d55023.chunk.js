@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[18],{63:function(e,t,p){"use strict";p.r(t),p.d(t,"getTypeOnChange",(function(){return a}));var n=p(12),r=p(4),a=function(e){return function(t){e&&n.a.dispatch(Object(r.updateProfile)({profileId:e,profileType:t}))}}}}]);
-//# sourceMappingURL=18.d9d55023.chunk.js.map

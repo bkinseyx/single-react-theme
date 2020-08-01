@@ -10,4 +10,7 @@
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 
 @import './liferay_ui_hacks';
-@import './custom.css';
+
+.flex-grow {
+  flex-grow: 1;
+}

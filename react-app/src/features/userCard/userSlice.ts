@@ -9,16 +9,20 @@ import { getUsersSuccessReducer } from './reducers/getUsersSuccessReducer';
 import { getUsersFailureReducer } from './reducers/getUsersFailureReducer';
 import { submitEditFormReducer } from './reducers/submitEditFormReducer';
 import { resetEditFormReducer } from './reducers/resetEditFormReducer';
-
-import { resetReducer } from './reducers/resetReducer';
 import { setFormDataReducer } from './reducers/setFormData';
 import { cancelEditFormReducer } from './reducers/cancelEditFormReducer';
+import { getUserBeginReducer } from './reducers/getUserBeginReducer';
+import { getUserSuccessReducer } from './reducers/getUserSuccessReducer';
+import { getUserFailureReducer } from './reducers/getUserFailureReducer';
+import { resetReducer } from './reducers/resetReducer';
 
 export interface User {
-  userId: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
+  userId?: string;
+  firstName?: string;
+  middleName?: string;
+  lastName?: string;
+  emailAddress?: string;
+  screenName?: string;
 }
 
 const schema = {
@@ -40,6 +44,7 @@ const schema = {
     emailAddress: {
       type: 'string',
       title: 'Email Address',
+      format: 'emailAddressFormat',
     },
     newPassword1: {
       type: 'string',
@@ -107,6 +112,9 @@ export const userSlice = createSlice({
     getUsersBegin: getUsersBeginReducer,
     getUsersSuccess: getUsersSuccessReducer,
     getUsersFailure: getUsersFailureReducer,
+    getUserBegin: getUserBeginReducer,
+    getUserSuccess: getUserSuccessReducer,
+    getUserFailure: getUserFailureReducer,
     submitEditForm: submitEditFormReducer,
     resetEditForm: resetEditFormReducer,
     cancelEditForm: cancelEditFormReducer,
@@ -123,6 +131,9 @@ export const {
   getUsersBegin,
   getUsersSuccess,
   getUsersFailure,
+  getUserBegin,
+  getUserSuccess,
+  getUserFailure,
   submitEditForm,
   resetEditForm,
   cancelEditForm,

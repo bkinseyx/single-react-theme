@@ -1,5 +1,6 @@
 import React from 'react';
 import { ObjectFieldTemplateProps } from 'react-jsonschema-form';
+import styles from './ObjectFieldTemplate.module.css';
 
 export const ObjectFieldTemplate = ({
   TitleField,
@@ -9,17 +10,12 @@ export const ObjectFieldTemplate = ({
   required,
   idSchema,
 }: ObjectFieldTemplateProps) => {
-  console.log({ idSchema });
   return (
     <fieldset>
       <div>
-        <div className="row">
+        <div className={`row ${styles.row}`}>
           {properties.map((prop) => (
-            <div
-              style={{ whiteSpace: 'nowrap' }}
-              className="col-lg-2 col-md-4 col-sm-6 col-xs-12"
-              key={prop.content.key as string | number | undefined}
-            >
+            <div key={prop.content.key as string | number | undefined}>
               {prop.content}
             </div>
           ))}

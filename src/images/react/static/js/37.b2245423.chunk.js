@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[37],{101:function(t,e,n){"use strict";n.r(e),n.d(e,"getDeleteOnClick",(function(){return a}));var c=n(6),p=n(14),a=function(t){return function(){t&&p.a.dispatch(Object(c.deleteToDo)(t))}}}}]);
+//# sourceMappingURL=37.b2245423.chunk.js.map
