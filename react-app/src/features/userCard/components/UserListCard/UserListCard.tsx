@@ -6,10 +6,10 @@ import { usersSelector } from '../../selectors/usersSelector';
 import { CardFooterWrapper } from 'app/components/CardFooterWrapper/CardFooterWrapper';
 import { getCreateOnClick } from './getCreateOnClick';
 import { getUsers } from 'features/userCard/api/getUsers';
+import styles from './UserListCard.module.css';
 
 export const UserListCard: React.FC = () => {
   useEffect(() => {
-    console.log('what');
     getUsers();
   }, []);
 
@@ -21,7 +21,7 @@ export const UserListCard: React.FC = () => {
         <h5 className="card-title">Users</h5>
       </div>
       <div className="card-body">
-        <ul className="list-group">
+        <ul className={`list-group ${styles.listGroup}`}>
           {userList.map((user) => (
             <UserItem key={user.userId} user={user}></UserItem>
           ))}

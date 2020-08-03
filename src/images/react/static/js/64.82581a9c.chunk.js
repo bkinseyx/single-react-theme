@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[64],{120:function(p,e,t){p.exports={profileItem:"ProfileItem_profileItem___Vthf",buttonWrapper:"ProfileItem_buttonWrapper__Un2Su"}}}]);
+//# sourceMappingURL=64.82581a9c.chunk.js.map

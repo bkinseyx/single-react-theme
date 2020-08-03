@@ -50,7 +50,6 @@ export const updateUserDummyData = {
   lastName: '',
   prefixId: 0,
   suffixId: 0,
-  male: true,
   birthdayMonth: 1,
   birthdayDay: 1,
   birthdayYear: 1970,
@@ -59,12 +58,40 @@ export const updateUserDummyData = {
   jabberSn: '',
   skypeSn: '',
   twitterSn: '',
-  jobTitle: 'Tester',
+  jobTitle: '',
   groupIds: null,
   organizationIds: [],
   roleIds: [],
   userGroupRoles: [],
   userGroupIds: [],
+};
+
+export const createUserDummyData = {
+  autoPassword: false,
+  password1: '', //
+  password2: '', //
+  autoScreenName: false,
+  screenName: '', //
+  emailAddress: '', //
+  facebookId: 0,
+  openId: '',
+  locale: 'en_US',
+  firstName: '', //
+  middleName: '', //
+  lastName: '', //
+  prefixId: 0,
+  suffixId: 0,
+  male: true,
+  birthdayMonth: 1,
+  birthdayDay: 1,
+  birthdayYear: 1970,
+  jobTitle: '',
+  groupIds: null,
+  organizationIds: null,
+  roleIds: null,
+  userGroupIds: null,
+  sendEmail: false,
+  serviceContext: {},
 };
 
 export const getGroupId = () => window.Liferay.ThemeDisplay.getScopeGroupId();

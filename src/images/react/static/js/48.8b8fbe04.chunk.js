@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[48],{160:function(a,t,n){"use strict";n.r(t),n.d(t,"formOnChange",(function(){return p}));var r=n(14),c=n(7),p=function(a){var t=a.formData;r.a.dispatch(Object(c.setFormData)(t))}}}]);
-//# sourceMappingURL=48.8b8fbe04.chunk.js.map

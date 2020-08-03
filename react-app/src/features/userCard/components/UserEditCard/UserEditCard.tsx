@@ -13,9 +13,13 @@ import {
 import { resetOnClick } from './resetOnClick';
 
 export const UserEditCard: React.FC = () => {
-  const { formKey, data = {}, schema, uiSchema } = useSelector(
-    getUserEditFormSelector
-  );
+  const {
+    formKey,
+    data = {},
+    createUserSchema,
+    updateUserSchema,
+    uiSchema,
+  } = useSelector(getUserEditFormSelector);
   const formRef = useRef<CustomFormImperative>(null);
 
   console.log('here');
@@ -23,13 +27,13 @@ export const UserEditCard: React.FC = () => {
   return (
     <div className="card" role="main" aria-label="User Card">
       <div className="card-header">
-        <h5 className="card-title">Users</h5>
+        <h5 className="card-title">User Edit</h5>
       </div>
       <div className="card-body">
         <CustomForm
           formKey={formKey}
           data={data}
-          schema={schema}
+          schema={data.userId ? updateUserSchema : createUserSchema}
           uiSchema={uiSchema}
           formOnChange={formOnChange}
           formOnSubmit={formOnSubmit}

@@ -1,9 +1,10 @@
 .row {
-  display: fex;
+  display: flex;
+  margin-left: 0;
 }
 
 .row > * {
   white-space: nowrap;
-  padding-right: 1rem;
+  padding-right: 1.5rem;
   min-width: 25rem;
 }

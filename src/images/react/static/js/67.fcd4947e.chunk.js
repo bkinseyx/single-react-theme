@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[67],{148:function(e,p,t){e.exports={item:"UserItem_item__2gGRR",buttonsWrapper:"UserItem_buttonsWrapper__1e4zy"}}}]);
+//# sourceMappingURL=67.fcd4947e.chunk.js.map

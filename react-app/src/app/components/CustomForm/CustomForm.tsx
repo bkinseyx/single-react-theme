@@ -1,6 +1,7 @@
 import React, { Ref } from 'react';
 import Form, { UiSchema } from 'react-jsonschema-form';
 import { JSONSchema6 } from 'json-schema';
+import styles from './CustomForm.module.css';
 
 import { ObjectFieldTemplate } from 'app/components/ObjectFieldTemplate/ObjectFieldTemplate';
 import {
@@ -53,6 +54,7 @@ export const CustomForm = React.forwardRef(
         showErrorList={false}
         ObjectFieldTemplate={ObjectFieldTemplate}
         ref={ref as any}
+        className={styles.wrapper}
       />
     );
   }

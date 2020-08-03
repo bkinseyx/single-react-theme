@@ -7,13 +7,15 @@ import { editUserReducer } from './reducers/setEditUserReducer';
 import { getUsersBeginReducer } from './reducers/getUsersBeginReducer';
 import { getUsersSuccessReducer } from './reducers/getUsersSuccessReducer';
 import { getUsersFailureReducer } from './reducers/getUsersFailureReducer';
-import { submitEditFormReducer } from './reducers/submitEditFormReducer';
 import { resetEditFormReducer } from './reducers/resetEditFormReducer';
 import { setFormDataReducer } from './reducers/setFormData';
 import { cancelEditFormReducer } from './reducers/cancelEditFormReducer';
 import { getUserBeginReducer } from './reducers/getUserBeginReducer';
 import { getUserSuccessReducer } from './reducers/getUserSuccessReducer';
 import { getUserFailureReducer } from './reducers/getUserFailureReducer';
+import { saveUserBeginReducer } from './reducers/saveUserBeginReducer';
+import { saveUserSuccessReducer } from './reducers/saveUserSuccessReducer';
+import { saveUserFailureReducer } from './reducers/saveUserFailureReducer';
 import { resetReducer } from './reducers/resetReducer';
 
 export interface User {
@@ -46,6 +48,30 @@ const schema = {
       title: 'Email Address',
       format: 'emailAddressFormat',
     },
+  },
+};
+
+export const createUserSchema = {
+  ...schema,
+  required: [...schema.required, 'password1', 'password2'],
+  properties: {
+    ...schema.properties,
+
+    password1: {
+      type: 'string',
+      title: 'Password',
+    },
+    password2: {
+      type: 'string',
+      title: 'Confirm Password',
+    },
+  },
+};
+
+export const updateUserSchema = {
+  ...schema,
+  properties: {
+    ...schema.properties,
     newPassword1: {
       type: 'string',
       title: 'Change Password',
@@ -75,7 +101,8 @@ export interface UserEditForm {
   serverError: null;
   serverSuccessMessage: null;
   submitting: false;
-  schema: {};
+  createUserSchema: {};
+  updateUserSchema: {};
   uiSchema: {};
 }
 
@@ -83,6 +110,7 @@ export interface UserState {
   users: User[];
   editUser?: User;
   loading: boolean;
+  saving: boolean;
   error: string;
   editForm: UserEditForm;
 }
@@ -90,13 +118,15 @@ export interface UserState {
 export const initialState: UserState = {
   users: [],
   loading: false,
+  saving: false,
   error: '',
   editForm: {
     formKey: Date.now(),
     serverError: null,
     serverSuccessMessage: null,
     submitting: false,
-    schema,
+    createUserSchema,
+    updateUserSchema,
     uiSchema,
   },
 };
@@ -115,10 +145,12 @@ export const userSlice = createSlice({
     getUserBegin: getUserBeginReducer,
     getUserSuccess: getUserSuccessReducer,
     getUserFailure: getUserFailureReducer,
-    submitEditForm: submitEditFormReducer,
     resetEditForm: resetEditFormReducer,
     cancelEditForm: cancelEditFormReducer,
     setFormData: setFormDataReducer,
+    saveUserBegin: saveUserBeginReducer,
+    saveUserSuccess: saveUserSuccessReducer,
+    saveUserFailure: saveUserFailureReducer,
     reset: resetReducer,
   },
 });
@@ -134,10 +166,12 @@ export const {
   getUserBegin,
   getUserSuccess,
   getUserFailure,
-  submitEditForm,
   resetEditForm,
   cancelEditForm,
   setFormData,
+  saveUserBegin,
+  saveUserSuccess,
+  saveUserFailure,
   reset,
 } = userSlice.actions;
 

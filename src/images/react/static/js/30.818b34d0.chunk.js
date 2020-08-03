@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[30],{325:function(e,t,i){"use strict";i.r(t);var a=i(14),c=i(5);test("setActiveProfile test",(function(){var e=a.a.getState().profile;expect(e.activeProfileId).toBeUndefined(),a.a.dispatch(Object(c.setActiveProfile)(2)),e=a.a.getState().profile,expect(e.activeProfileId).toBe(2),a.a.dispatch(Object(c.setActiveProfile)(1)),e=a.a.getState().profile,expect(e.activeProfileId).toBe(1)}))}}]);
-//# sourceMappingURL=30.818b34d0.chunk.js.map

@@ -1,0 +1,1 @@
+{"version":3,"sources":["ProfileItem.module.css"],"names":[],"mappings":"AAAA,gCACE,YACF,CAEA,kCACE,YACF,CAEA,kCACE,YAAa,CACb,oBACF","file":"10.c143235e.chunk.css","sourcesContent":[".profileItem {\n  display: flex;\n}\n\n.profileItem > * {\n  padding: 1rem;\n}\n\n.buttonWrapper {\n  display: flex;\n  align-items: flex-end;\n}\n"]}

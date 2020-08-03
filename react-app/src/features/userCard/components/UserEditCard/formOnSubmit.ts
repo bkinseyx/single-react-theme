@@ -1,7 +1,7 @@
-import { store } from 'app/store';
-import { submitEditForm } from '../../userSlice';
+import { User } from '../../userSlice';
+import { saveUser } from 'features/userCard/api/saveUser';
 
-export const formOnSubmit = ({ formData }: { formData: any }) => {
+export const formOnSubmit = ({ formData }: { formData: User }) => {
   console.log('submitted successfully');
-  store.dispatch(submitEditForm(formData));
+  saveUser(formData);
 };
