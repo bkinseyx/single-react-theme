@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[73],{697:function(p,a,t){p.exports=t.p+"static/media/ToDoCard.test.tsx.e21a12b7.snap"}}]);
+//# sourceMappingURL=73.1e154e10.chunk.js.map

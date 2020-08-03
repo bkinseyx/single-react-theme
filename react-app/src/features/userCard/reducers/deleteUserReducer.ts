@@ -2,6 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 import { UserState, User } from '../userSlice';
 
+/** only used in development */
 export const deleteUserReducer = (
   state: UserState,
   action: PayloadAction<User>

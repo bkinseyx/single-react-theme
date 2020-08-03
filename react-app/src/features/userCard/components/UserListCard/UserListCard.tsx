@@ -5,12 +5,12 @@ import { UserItem } from '../UserItem/UserItem';
 import { usersSelector } from '../../selectors/usersSelector';
 import { CardFooterWrapper } from 'app/components/CardFooterWrapper/CardFooterWrapper';
 import { getCreateOnClick } from './getCreateOnClick';
-import { getUsers } from 'features/userCard/api/getUsers';
+import { getUsersApi } from 'features/userCard/api/getUsersApi';
 import styles from './UserListCard.module.css';
 
 export const UserListCard: React.FC = () => {
   useEffect(() => {
-    getUsers();
+    getUsersApi();
   }, []);
 
   const userList = useSelector(usersSelector);

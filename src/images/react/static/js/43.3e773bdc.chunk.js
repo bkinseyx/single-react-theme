@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[43],{111:function(t,e,n){"use strict";n.r(e),n.d(e,"getIsCompleteOnChange",(function(){return a}));var p=n(8),o=n(15),a=function(t){return function(e){t&&o.a.dispatch(Object(p.updateToDo)({toDoId:t,isComplete:e}))}}}}]);
+//# sourceMappingURL=43.3e773bdc.chunk.js.map

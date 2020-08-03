@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[36],{104:function(t,e,r){"use strict";r.r(e),r.d(e,"getIsActiveSelector",(function(){return n}));var n=function(t){return function(e){return e.profile.activeProfileId===t.profileId}}}}]);
+//# sourceMappingURL=36.a2c2d34f.chunk.js.map

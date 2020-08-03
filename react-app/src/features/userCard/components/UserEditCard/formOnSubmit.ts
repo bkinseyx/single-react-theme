@@ -1,7 +1,7 @@
 import { User } from '../../userSlice';
-import { saveUser } from 'features/userCard/api/saveUser';
+import { saveUserApi } from 'features/userCard/api/saveUserApi';
 
 export const formOnSubmit = ({ formData }: { formData: User }) => {
   console.log('submitted successfully');
-  saveUser(formData);
+  saveUserApi(formData);
 };

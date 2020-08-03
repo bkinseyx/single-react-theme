@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[40],{106:function(t,n,c){"use strict";c.r(n),c.d(n,"getDescriptionOnChange",(function(){return i}));var e=c(8),p=c(15),i=function(t){return function(n){t&&p.a.dispatch(Object(e.updateToDo)({toDoId:t,description:n}))}}}}]);
-//# sourceMappingURL=40.61733f1c.chunk.js.map

@@ -1,6 +1,6 @@
 import React from 'react';
 import { User } from '../../userSlice';
-import { getUser } from 'features/userCard/api/getUser';
+import { getUserApi } from 'features/userCard/api/getUserApi';
 
 export const getEditOnClick = (user?: User) => (
   event: React.MouseEvent
@@ -9,6 +9,6 @@ export const getEditOnClick = (user?: User) => (
   if (!user) {
     return;
   }
-  getUser(user);
+  getUserApi(user);
   event.stopPropagation();
 };

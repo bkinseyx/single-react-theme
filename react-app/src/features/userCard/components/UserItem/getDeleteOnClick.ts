@@ -1,6 +1,7 @@
 import React from 'react';
 import { store } from 'app/store';
-import { deleteUser, User } from '../../userSlice';
+import { User } from '../../userSlice';
+import { deleteUserApi } from 'features/userCard/api/deleteUserApi';
 
 export const getDeleteOnClick = (user: User) => (
   event: React.MouseEvent
@@ -9,6 +10,6 @@ export const getDeleteOnClick = (user: User) => (
   if (!user) {
     return;
   }
-  store.dispatch(deleteUser(user));
+  store.dispatch(deleteUserApi(user));
   event.stopPropagation();
 };

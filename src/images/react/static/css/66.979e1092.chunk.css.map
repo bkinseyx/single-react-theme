@@ -1,1 +1,0 @@
-{"version":3,"sources":["ToDoItem.module.css"],"names":[],"mappings":"AAAA,0BACE,YACF,CAEA,4BACE,YACF,CAEA,+BACE,YAAa,CACb,oBACF","file":"66.979e1092.chunk.css","sourcesContent":[".toDoItem {\n  display: flex;\n}\n\n.toDoItem > * {\n  padding: 1rem;\n}\n\n.buttonWrapper {\n  display: flex;\n  align-items: flex-end;\n}\n"]}

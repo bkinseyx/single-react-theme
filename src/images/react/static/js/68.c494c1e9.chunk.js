@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[68],{184:function(p,s,t){p.exports={listGroup:"UserListCard_listGroup__q1V-7"}}}]);
-//# sourceMappingURL=68.c494c1e9.chunk.js.map

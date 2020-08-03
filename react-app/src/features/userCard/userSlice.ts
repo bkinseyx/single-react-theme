@@ -16,6 +16,10 @@ import { getUserFailureReducer } from './reducers/getUserFailureReducer';
 import { saveUserBeginReducer } from './reducers/saveUserBeginReducer';
 import { saveUserSuccessReducer } from './reducers/saveUserSuccessReducer';
 import { saveUserFailureReducer } from './reducers/saveUserFailureReducer';
+import { deleteUserBeginReducer } from './reducers/deleteUserBeginReducer';
+import { deleteUserSuccessReducer } from './reducers/deleteUserSuccessReducer';
+import { deleteUserFailureReducer } from './reducers/deleteUserFailureReducer';
+
 import { resetReducer } from './reducers/resetReducer';
 
 export interface User {
@@ -111,6 +115,7 @@ export interface UserState {
   editUser?: User;
   loading: boolean;
   saving: boolean;
+  deleting: boolean;
   error: string;
   editForm: UserEditForm;
 }
@@ -119,6 +124,7 @@ export const initialState: UserState = {
   users: [],
   loading: false,
   saving: false,
+  deleting: false,
   error: '',
   editForm: {
     formKey: Date.now(),
@@ -151,6 +157,9 @@ export const userSlice = createSlice({
     saveUserBegin: saveUserBeginReducer,
     saveUserSuccess: saveUserSuccessReducer,
     saveUserFailure: saveUserFailureReducer,
+    deleteUserBegin: deleteUserBeginReducer,
+    deleteUserSuccess: deleteUserSuccessReducer,
+    deleteUserFailure: deleteUserFailureReducer,
     reset: resetReducer,
   },
 });
@@ -172,6 +181,9 @@ export const {
   saveUserBegin,
   saveUserSuccess,
   saveUserFailure,
+  deleteUserBegin,
+  deleteUserSuccess,
+  deleteUserFailure,
   reset,
 } = userSlice.actions;
 
