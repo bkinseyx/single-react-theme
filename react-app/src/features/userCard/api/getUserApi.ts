@@ -1,5 +1,5 @@
 import { store } from 'app/store';
-import { promisifiedLiferayService, getGroupId } from 'app/utils/liferayUtils';
+import { promisifiedLiferayService } from 'app/utils/liferayUtils';
 import {
   getUserBegin,
   getUserSuccess,
@@ -12,13 +12,14 @@ export const getUserApi = async (user: User) => {
     store.dispatch(getUserSuccess(user));
     return;
   }
+  store.dispatch(getUserBegin());
   try {
     const userDetails = await promisifiedLiferayService(
       '/user/get-user-by-id',
       { userId: user.userId },
       'object'
     );
-    store.dispatch(getUserSuccess(user));
+    store.dispatch(getUserSuccess(userDetails as User));
   } catch (error) {
     store.dispatch(getUserFailure(error));
   }

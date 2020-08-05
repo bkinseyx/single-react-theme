@@ -6,7 +6,11 @@ writeFileSync(
   'src/templates/react/react_css.ftl',
   indexHtml
     .querySelectorAll('link')
-    .filter((tag) => tag.getAttribute('rel') === 'stylesheet')
+    .filter(
+      (tag) =>
+        tag.getAttribute('rel') === 'stylesheet' &&
+        !tag.hasAttribute('data-no-liferay')
+    )
     .map((scriptTag) => {
       // scriptTag.setAttribute(
       //   'href',

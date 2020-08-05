@@ -7,6 +7,13 @@ import { Provider } from 'react-redux';
 declare global {
   interface Window {
     initThemeReact: () => void;
+    getApiFields: () => {};
+    setApiFields: (apiFields: string) => void;
+    apiFields: () => {
+      authToken: string;
+      groupId: string;
+      companyId: string;
+    };
     reactAutoInit: boolean;
   }
 }
@@ -43,3 +50,18 @@ if (window.reactAutoInit) {
 if (process.env.NODE_ENV === 'development' && module.hot) {
   module.hot.accept('./App', window.initThemeReact);
 }
+
+window.getApiFields = () => {
+  return JSON.stringify({
+    authToken: window.Liferay.authToken,
+    groupId: window.Liferay.ThemeDisplay.getScopeGroupId(),
+    companyId: window.Liferay.ThemeDisplay.getCompanyId(),
+  });
+};
+
+window.setApiFields = (apiFields: string) => {
+  localStorage.setItem('apiFields', apiFields);
+};
+
+window.apiFields = () =>
+  JSON.parse(localStorage.getItem('apiFields') as string);
