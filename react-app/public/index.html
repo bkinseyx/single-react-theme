@@ -32,6 +32,16 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script>
       window.reactAutoInit = true;
+
+      const registerReactTab = () => {
+        var data = {
+          type: 'REGISTER_REACT_APP',
+          message: 'register react app',
+        };
+        window.postMessage(data, '*');
+      };
+
+      setTimeout(registerReactTab, 500);
     </script>
     <div data-react-app="UserCard"></div>
     <!--

@@ -19,7 +19,18 @@ AUI().ready(
 	loaded.
 	*/
 
-  function () {}
+  function () {
+    console.log('sending message.');
+    var data = {
+      type: 'SET_LIFERAY_FIELDS',
+      message: {
+        authToken: Liferay.authToken,
+        groupId: Liferay.ThemeDisplay.getScopeGroupId(),
+        companyId: window.Liferay.ThemeDisplay.getCompanyId(),
+      },
+    };
+    window.postMessage(data, '*');
+  }
 );
 
 Liferay.Portlet.ready(

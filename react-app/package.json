@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "env-cmd react-scripts build",
+    "build": "env-cmd react-scripts build && shx rm build/static/media/*.snap",
     "test": "react-scripts test",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
