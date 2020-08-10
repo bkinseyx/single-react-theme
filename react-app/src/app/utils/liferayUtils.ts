@@ -1,6 +1,12 @@
 declare global {
   interface Window {
     Liferay: any;
+    getFieldFromLiferayObject: (fieldName: string) => string;
+    promisifiedLiferayService: (
+      api: string,
+      data: {},
+      expectedResultType: string
+    ) => Promise<{}>;
   }
 }
 
@@ -29,6 +35,48 @@ export const promisifiedLiferayService = (
       reject(error);
     }
   });
+
+const createPromise = () => {
+  let _resolve, _reject;
+
+  const promise: any = new Promise(function(resolve, reject) {
+    _resolve = resolve;
+    _reject = reject;
+  });
+
+  promise.resolve = _resolve;
+  promise.reject = _reject;
+
+  return promise;
+};
+
+let liferayServicePromise: any;
+
+export const executeLiferayService = async (
+  api: string,
+  data: {},
+  expectedResultType: 'string' | 'array' | 'object'
+) => {
+  if (window.Liferay) {
+    return window.promisifiedLiferayService(api, data, expectedResultType);
+  }
+  window.postMessage(
+    {
+      type: 'EXECUTE_LIFERAY_SERVICE',
+      api,
+      data: JSON.stringify(data),
+      expectedResultType,
+    },
+    '*'
+  );
+  liferayServicePromise = createPromise();
+  return await liferayServicePromise;
+  // return {
+  //   string: '',
+  //   array: [],
+  //   object: {},
+  // }[expectedResultType];
+};
 
 export const updateUserDummyData = {
   oldPassword: '',
@@ -94,4 +142,16 @@ export const createUserDummyData = {
   serviceContext: {},
 };
 
-export const getGroupId = () => window.Liferay.ThemeDisplay.getScopeGroupId();
+export const getLiferayField = async (fieldName: string): Promise<string> => {
+  if (window.Liferay) {
+    return window.getFieldFromLiferayObject(fieldName);
+  }
+  const liferayFields = localStorage.getItem('liferayFields');
+  return JSON.parse(liferayFields as string)[fieldName];
+};
+
+window.addEventListener('message', function(event) {
+  if (event.data.type === 'LOCAL_RETURN_LIFERAY_SERVICE_RESULT') {
+    liferayServicePromise.resolve(event.data.result);
+  }
+});

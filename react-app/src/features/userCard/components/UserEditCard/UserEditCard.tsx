@@ -22,8 +22,6 @@ export const UserEditCard: React.FC = () => {
   } = useSelector(getUserEditFormSelector);
   const formRef = useRef<CustomFormImperative>(null);
 
-  console.log('here');
-
   return (
     <div className="card" role="main" aria-label="User Card">
       <div className="card-header">

@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-app"]=this["webpackJsonpreact-app"]||[]).push([[46],{347:function(e,t,s){"use strict";s.r(t);var r=s(15),a=s(9);test("deleteToDo test",(function(){var e=r.a.getState().toDo;expect(e.errorMessage).toBeUndefined(),r.a.dispatch(Object(a.setErrorMessage)("this is the error message")),e=r.a.getState().toDo,expect(e.errorMessage).toBe("this is the error message"),r.a.dispatch(Object(a.setErrorMessage)()),e=r.a.getState().toDo,expect(e.errorMessage).toBeUndefined()}))}}]);
+//# sourceMappingURL=46.51396c96.chunk.js.map

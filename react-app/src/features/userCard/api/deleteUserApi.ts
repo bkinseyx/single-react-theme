@@ -6,17 +6,20 @@ import {
   deleteUser,
 } from '../userSlice';
 import { store } from 'app/store';
-import { promisifiedLiferayService } from 'app/utils/liferayUtils';
+import {
+  promisifiedLiferayService,
+  executeLiferayService,
+} from 'app/utils/liferayUtils';
 import { getUsersApi } from './getUsersApi';
 
 export const deleteUserApi = (user: User) => async () => {
-  if (process.env.NODE_ENV === 'development') {
-    store.dispatch(deleteUser(user));
-    return;
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   store.dispatch(deleteUser(user));
+  //   return;
+  // }
   try {
     store.dispatch(deleteUserBegin());
-    await promisifiedLiferayService(
+    await executeLiferayService(
       '/user/delete-user',
       {
         userId: user.userId,

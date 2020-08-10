@@ -1,20 +1,39 @@
-let reactAppTabId;
 let liferayFields;
 
-console.log('background listener');
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log(
-    sender.tab
-      ? 'from a content script:' + sender.tab.url + ' id: ' + sender.tab.id
-      : 'from the extension'
-  );
   if (request.type === 'SET_LIFERAY_FIELDS') {
-    console.log('got liferay fields');
     liferayFields = request.message;
+    chrome.tabs.query({}, function (tabs) {
+      for (var i = 0; i < tabs.length; ++i) {
+        chrome.tabs.sendMessage(tabs[i].id, {
+          type: 'STORE_LIFERAY_FIELDS',
+          message: liferayFields,
+        });
+      }
+    });
   }
-  if (request.type === 'REGISTER_REACT_APP') {
-    console.log('got react app tab id');
-    reactAppTabId = sender.tab.id;
+
+  if (request.type === 'EXECUTE_LIFERAY_SERVICE') {
+    chrome.tabs.query({}, function (tabs) {
+      for (var i = 0; i < tabs.length; ++i) {
+        chrome.tabs.sendMessage(tabs[i].id, {
+          type: 'EXECUTE_LIFERAY_SERVICE',
+          api: request.api,
+          data: request.data,
+          expectedResultType: request.expectedResultType,
+        });
+      }
+    });
   }
-  // if (request.greeting == "hello") sendResponse({ farewell: "goodbye" });
+
+  if (request.type === 'RETURN_LIFERAY_SERVICE_RESULT') {
+    chrome.tabs.query({}, function (tabs) {
+      for (var i = 0; i < tabs.length; ++i) {
+        chrome.tabs.sendMessage(tabs[i].id, {
+          type: 'RETURN_LIFERAY_SERVICE_RESULT',
+          result: request.result,
+        });
+      }
+    });
+  }
 });

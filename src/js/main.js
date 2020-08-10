@@ -19,8 +19,7 @@ AUI().ready(
 	loaded.
 	*/
 
-  function () {
-    console.log('sending message.');
+  setTimeout(function () {
     var data = {
       type: 'SET_LIFERAY_FIELDS',
       message: {
@@ -30,7 +29,7 @@ AUI().ready(
       },
     };
     window.postMessage(data, '*');
-  }
+  }, 300)
 );
 
 Liferay.Portlet.ready(
@@ -56,3 +55,54 @@ Liferay.on(
     window.initThemeReact && window.initThemeReact();
   }
 );
+
+window.getFieldFromLiferayObject = function (fieldName) {
+  return {
+    authToken: window.Liferay.authToken,
+    groupId: window.Liferay.ThemeDisplay.getScopeGroupId(),
+    companyId: window.Liferay.ThemeDisplay.getCompanyId(),
+  }[fieldName];
+};
+
+window.promisifiedLiferayService = function (api, data, expectedResultType) {
+  return new Promise((resolve, reject) => {
+    try {
+      window.Liferay.Service(api, data, (result) => {
+        if (typeof result === expectedResultType) {
+          resolve(result);
+        } else if (expectedResultType === 'array' && Array.isArray(result)) {
+          resolve(result);
+        } else if (typeof result === 'string') {
+          reject(result);
+        } else {
+          reject('Unexpected error.');
+        }
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+window.addEventListener('message', function (event) {
+  // We only accept messages from ourselves
+  if (event.source != window) return;
+
+  if (event.data.type === 'LOCAL_LIFERAY_SERVICE') {
+    promisifiedLiferayService(
+      event.data.api,
+      JSON.parse(event.data.data),
+      event.data.expectedResultType
+    )
+      .then((result) => {
+        window.postMessage(
+          {
+            type: 'RETURN_LIFERAY_SERVICE_RESULT',
+            result,
+          },
+          '*'
+        );
+      })
+      .catch((e) => console.log('error', e));
+  }
+});

@@ -3,7 +3,8 @@ import {
   promisifiedLiferayService,
   updateUserDummyData,
   createUserDummyData,
-  getGroupId,
+  getLiferayField,
+  executeLiferayService,
 } from 'app/utils/liferayUtils';
 import {
   saveUserBegin,
@@ -14,18 +15,18 @@ import {
 import { getUsersApi } from './getUsersApi';
 
 export const saveUserApi = async (user: User) => {
-  if (process.env.NODE_ENV === 'development') {
-    store.dispatch(saveUserSuccess());
-    return;
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   store.dispatch(saveUserSuccess());
+  //   return;
+  // }
   try {
     store.dispatch(saveUserBegin());
-    await promisifiedLiferayService(
+    await executeLiferayService(
       user.userId ? '/user/update-user' : '/user/add-user',
       {
         ...(user.userId ? updateUserDummyData : createUserDummyData), // is this the appropriate place to complain that the liferay api is ridiculous?
-        companyId: window.Liferay.ThemeDisplay.getCompanyId(),
-        groupIds: [getGroupId()],
+        companyId: await getLiferayField('companyId'),
+        groupIds: [await getLiferayField('groupId')],
         ...user,
       },
       'object'

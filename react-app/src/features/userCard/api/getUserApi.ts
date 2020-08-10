@@ -1,5 +1,8 @@
 import { store } from 'app/store';
-import { promisifiedLiferayService } from 'app/utils/liferayUtils';
+import {
+  promisifiedLiferayService,
+  executeLiferayService,
+} from 'app/utils/liferayUtils';
 import {
   getUserBegin,
   getUserSuccess,
@@ -14,7 +17,7 @@ export const getUserApi = async (user: User) => {
   }
   store.dispatch(getUserBegin());
   try {
-    const userDetails = await promisifiedLiferayService(
+    const userDetails = await executeLiferayService(
       '/user/get-user-by-id',
       { userId: user.userId },
       'object'
