@@ -23,7 +23,7 @@ import { deleteUserFailureReducer } from './reducers/deleteUserFailureReducer';
 import { resetReducer } from './reducers/resetReducer';
 
 export interface User {
-  userId?: string;
+  userId?: string | number;
   firstName?: string;
   middleName?: string;
   lastName?: string;

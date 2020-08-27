@@ -106,12 +106,14 @@ export const updateUserDummyData = {
   jabberSn: '',
   skypeSn: '',
   twitterSn: '',
-  jobTitle: '',
+  jobTitle: 'tester',
   groupIds: null,
   organizationIds: [],
   roleIds: [],
   userGroupRoles: [],
   userGroupIds: [],
+  male: true,
+  serviceContext: {},
 };
 
 export const createUserDummyData = {
